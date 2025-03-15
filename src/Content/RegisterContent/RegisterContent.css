@@ -1,0 +1,69 @@
+.register-container {
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: 1fr 610px 1fr;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color_4);
+}
+
+.register-form-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: var(--color_4);
+    display: flex;
+    flex-direction: column;
+    justify-content: start
+}
+
+.form-header-2 {
+    text-align: start;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+}
+.form-header-2 h2 {
+    color: #333;
+    font-size: 36px;
+}
+.form-header-2 ::after{
+    content: "";
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 130px;
+    height: 3px; /* Độ dày của underline */
+    background-color: var(--color_2); /* Màu của underline */
+}
+
+.register-button {
+    width: 290px;
+    background-color: var(--color_2);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 11px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+    font-family: 'Koh Santepheap', sans-serif;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+input.invalid {
+    border: 1px solid #e74c3c;
+}
+
+.register-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
