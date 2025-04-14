@@ -1,0 +1,54 @@
+package com.project.ReadStory.entity;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Builder
+@Table(name = "TheLoai")
+public class Category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "maTheLoai")
+    private Integer maTheLoai;
+
+    @Column(name = "tenTheLoai", length = 100)
+    private String tenTheLoai;
+
+    @Column(name = "moTa", columnDefinition = "TEXT")
+    private String moTa;
+
+    @Column(name = "ngayThem")
+    private LocalDateTime ngayThem;
+
+    @Column(name = "ngayCapNhat")
+    private LocalDateTime ngayCapNhat;
+
+    @PrePersist
+    protected void onCreate() {
+        this.ngayThem = LocalDateTime.now();
+        this.ngayCapNhat = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.ngayCapNhat = LocalDateTime.now();
+    }
+
+    //Các quan hệ
+    //Quan hệ 1-N với ThuocVe
+    @OneToMany(mappedBy = "theLoai", cascade = CascadeType.ALL)
+    private List<BelongTo> thuocVeList;
+
+
+}
