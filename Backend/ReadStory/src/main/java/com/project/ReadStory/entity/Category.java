@@ -1,4 +1,5 @@
 package com.project.ReadStory.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,6 +49,7 @@ public class Category {
     //Các quan hệ
     //Quan hệ 1-N với ThuocVe
     @OneToMany(mappedBy = "theLoai", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<BelongTo> thuocVeList;
 
 

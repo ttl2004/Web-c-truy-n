@@ -1,4 +1,6 @@
 package com.project.ReadStory.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,6 +34,7 @@ public class Chapter {
     }
 
     @ManyToOne
-    @JoinColumn(name = "maTruyen")
+    @JoinColumn(name = "maTruyen",nullable = false)
+    @JsonIgnore
     private Story truyen;
 }

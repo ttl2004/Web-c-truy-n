@@ -1,5 +1,6 @@
 package com.project.ReadStory.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,11 +33,13 @@ public class Comment {
     // Quan hệ N-1 với NGuoiDung
     @ManyToOne
     @JoinColumn(name = "maNguoiDung")
+    @JsonIgnore
     private User nguoiDung;
 
     // Quan hệ N-1với Truyen
     @ManyToOne
     @JoinColumn(name = "maTruyen")
+    @JsonIgnore
     private Story truyen;
 
     @PrePersist

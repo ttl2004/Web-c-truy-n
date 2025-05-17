@@ -1,5 +1,6 @@
 package com.project.ReadStory.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -49,12 +50,15 @@ public class User {
     private Rank capBac;
 
     @OneToMany(mappedBy = "nguoiDung", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Comment> binhLuanList;
 
     @OneToMany(mappedBy = "nguoiDung", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Follow> theoDoiList;
 
     @OneToMany(mappedBy = "nguoiDung", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<ReadStory> truyenList;
 
 
@@ -62,7 +66,10 @@ public class User {
     protected void onCreate() {
         this.ngayTao = LocalDateTime.now();
         this.ngayCapNhat = LocalDateTime.now();
-        this.quyenHan = "USER";
+        if (this.quyenHan == null || this.quyenHan.isEmpty()) {
+            this.quyenHan = "USER";
+        }
+
     }
 
     @PreUpdate

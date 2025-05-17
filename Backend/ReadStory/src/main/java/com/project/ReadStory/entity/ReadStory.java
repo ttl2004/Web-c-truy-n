@@ -1,5 +1,6 @@
 package com.project.ReadStory.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,10 +27,12 @@ public class ReadStory {
    // Các quan hệ
     @ManyToOne
     @JoinColumn(name = "maNguoiDung")
+    @JsonIgnore
     private User nguoiDung;
 
     @ManyToOne
     @JoinColumn(name = "maTruyen")
+    @JsonIgnore
     private Story truyen;
 
     @PrePersist

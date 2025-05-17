@@ -1,4 +1,6 @@
 package com.project.ReadStory.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -61,18 +63,23 @@ public class Story {
 
     // Các quan hệ
     @OneToMany(mappedBy = "truyen", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Chapter> chuongList;
 
     @OneToMany(mappedBy = "truyen", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Comment> binhLuanList;
 
     @OneToMany(mappedBy = "truyen", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<BelongTo> thuocVeList;
 
     @OneToMany(mappedBy = "truyen", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Follow> theoDoiList;
 
     @OneToMany(mappedBy = "truyen", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<ReadStory> docTruyenList;
 
 }

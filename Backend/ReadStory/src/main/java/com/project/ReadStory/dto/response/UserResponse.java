@@ -16,4 +16,5 @@ public class UserResponse {
     private String tenDangNhap;
     private String email;
     private Rank capBac;
+    private String quyenHan;
 }

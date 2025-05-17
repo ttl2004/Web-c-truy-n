@@ -1,5 +1,6 @@
 package com.project.ReadStory.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,9 +22,11 @@ public class BelongTo {
 //    Cac Quan he
     @ManyToOne
     @JoinColumn(name = "maTheLoai")
+    @JsonIgnore
     private Category theLoai;
 
     @ManyToOne
     @JoinColumn(name = "maTruyen")
+    @JsonIgnore
     private Story truyen;
 }

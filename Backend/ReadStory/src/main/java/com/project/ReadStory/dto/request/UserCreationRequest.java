@@ -8,16 +8,16 @@ import lombok.Setter;
 
 
 public class UserCreationRequest {
-    @Size(min = 6, message = "Tên tối thiểu 6 ký tự")
+    @Size(min = 6, message = "USER_INVALID")
     private String tenNguoiDung;
-    @Size(min = 3, message = "Tên đăng nhập tối thiểu 3 ký tự")
+    @Size(min = 3, message = "USERNAME_INVALID")
     private String tenDangNhap;
 
-    @Size(min = 8, message = "Vui lòng nhập tối thiểu 8 ký tự cho mật khẩu")
+    @Size(min = 8, message = "PASSWORD_INVALID")
     private String matKhau;
 
-    @NotBlank(message = "Email không được để trống")
-    @Email(message = "Email không hợp lệ")
+    @NotBlank(message = "EMAIL_NULL")
+    @Email(message = "EMAIL_INVALID")
     private String email;
 
     public String getTenNguoiDung() {

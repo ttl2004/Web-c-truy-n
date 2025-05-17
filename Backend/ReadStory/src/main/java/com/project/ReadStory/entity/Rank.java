@@ -1,5 +1,6 @@
 package com.project.ReadStory.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class Rank {
 
 //    Cac quan he
     @OneToMany(mappedBy = "capBac", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<User> nguoiDungList;
 
 
